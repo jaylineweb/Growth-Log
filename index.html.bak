@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>지나간 시간</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+    h1, h2 {
+      font-size: 2rem;
+      margin: 10px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="elapsed">계산 중...</h1>
+  <h2 id="daysHours">계산 중...</h2>
+
+  <script>
+    const startTime = new Date('2025-11-12T11:35:00');
+
+    function updateElapsedTime() {
+      const now = new Date();
+      let diff = Math.floor((now - startTime) / 1000); // 총 초
+
+      const totalHours = Math.floor(diff / 3600);
+      const minutes = Math.floor((diff % 3600) / 60);
+      const seconds = diff % 60;
+
+      // 일 + 시간 계산
+      const totalDays = Math.floor(totalHours / 24);
+      const remainingHours = totalHours % 24;
+
+      document.getElementById('elapsed').textContent =
+        `용현이가 태어난 지 ${totalHours}시간 ${minutes}분 ${seconds}초 지났습니다`;
+
+      document.getElementById('daysHours').textContent =
+        `즉, ${totalDays}일 ${remainingHours}시간이 지났습니다`;
+    }
+
+    setInterval(updateElapsedTime, 1000);
+    updateElapsedTime(); // 첫 로딩 시 바로 표시
+  </script>
+</body>
+</html>
