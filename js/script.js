@@ -20,6 +20,23 @@ function updateElapsedTime() {
 
   document.getElementById('daysHours').innerHTML =
     `총 <span class="number">${totalDays}</span>일 <span class="number">${remainingHours}</span>시간 <span class="number">${minutes}</span>분 <span class="number">${seconds}</span>초 지났습니다`;
+
+  // 100일까지 남은 일수 계산
+  const day100Date = new Date(startTime);
+  day100Date.setDate(day100Date.getDate() + 100);
+  const daysUntil100 = Math.ceil((day100Date - now) / (1000 * 60 * 60 * 24));
+  
+  if (daysUntil100 > 0) {
+    document.getElementById('day100Remaining').innerHTML =
+      `<span class="number">${daysUntil100}</span>일 남았습니다`;
+  } else if (daysUntil100 === 0) {
+    document.getElementById('day100Remaining').innerHTML =
+      `<span class="number">오늘</span>이 100일입니다! 🎉`;
+  } else {
+    const daysPast100 = Math.abs(daysUntil100);
+    document.getElementById('day100Remaining').innerHTML =
+      `<span class="number">${daysPast100}</span>일 지났습니다`;
+  }
 }
 
 setInterval(updateElapsedTime, 1000);
