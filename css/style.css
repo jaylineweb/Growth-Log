@@ -49,6 +49,8 @@ body { display: flex; flex-direction: column; justify-content: center; align-ite
   to { opacity: 1; transform: translateY(0); }
 }
 .title { font-size: 2.2rem; font-weight: 700; margin-bottom: 30px; color: #4a5568; letter-spacing: -0.5px; }
+.day100-display { margin-top: 30px; }
+.day100-title { font-size: 1.6rem; font-weight: 600; margin-bottom: 15px; color: #4a5568; letter-spacing: -0.3px; }
 .time-display { margin: 25px 0; padding: 25px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; color: white; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .time-display:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5); }
 .time-display h1 { font-size: 1.8rem; font-weight: 600; line-height: 1.6; margin: 0; }
